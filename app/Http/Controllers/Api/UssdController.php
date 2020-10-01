@@ -16,6 +16,6 @@ class UssdController extends Controller
 
     public function index(Request $request)
     {
-        echo response($this->service->resolve($request->all()))->header('Content-Type', 'text/plain');
+        return response($this->service->resolve($request->all()))->header('Content-Type', 'text/plain');
     }
 }
