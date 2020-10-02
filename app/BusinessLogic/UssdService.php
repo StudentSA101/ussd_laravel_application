@@ -6,19 +6,19 @@ use Exception;
 
 class UssdService
 {
-    private $codesToText;
+    private $codes;
 
     public function __construct($codes)
     {
-        $this->codesToText = $codes;
+        $this->codes = $codes;
     }
 
     public function resolve($request)
     {
         try {
-            return $this->codesToText[(String) $request['text']];
+            return $this->codes[(String) $request['text']];
         } catch (Exception $e){
-            return $this->codesToText['invalid'];
+            return $this->codes['invalid'];
         }
     }
 
